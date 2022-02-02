@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct GitHubRepositoriesApp: App {
+    // MARK: - body Property
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            StarterView()
         }
     }
 }
