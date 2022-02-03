@@ -14,6 +14,7 @@ struct AuthView: View {
     @State private var token = ""
     @State private var isLoading = false
     @State private var isEditingText = false
+    @State private var isWrongToken = false
     
     @Binding var login: String
     @Binding var currentPage: StarterPage
@@ -58,9 +59,7 @@ struct AuthView: View {
                                     isEditingText = isEditing
                                     
                                     if isEditing {
-                                        withAnimation {
-                                            authViewModel.isWrongToken = false
-                                        }
+                                        withAnimation { isWrongToken = false }
                                     }
                                 }
                             )
@@ -72,7 +71,7 @@ struct AuthView: View {
                                         text: token,
                                         placeholder: "Personal access token",
                                         isEditingText: isEditingText,
-                                        isWrongToken: authViewModel.isWrongToken
+                                        isWrongToken: isWrongToken
                                     )
                                 )
                             
@@ -80,7 +79,7 @@ struct AuthView: View {
                                 .font(.footnote)
                                 .foregroundColor(.red)
                                 .offset(x: 16)
-                                .hidden(!authViewModel.isWrongToken)
+                                .hidden(!isWrongToken)
                         }
                         .padding(.bottom, 20)
                         
@@ -93,17 +92,20 @@ struct AuthView: View {
                             height: 48
                         ) {
                             guard !token.isEmpty else {
-                                return withAnimation {
-                                    authViewModel.isWrongToken = true
-                                }
+                                return withAnimation { isWrongToken = true }
                             }
                             
                             isLoading = true
                             
-                            authViewModel.getUser(from: token) { page in
-                                login = authViewModel.user?.login ?? ""
-                                currentPage = page
+                            authViewModel.getUser(from: token) { isError in
+                                isWrongToken = isError
                                 isLoading = false
+                                
+                                guard !isError else { return }
+                                
+                                UIApplication.shared.endEditing()
+                                login = authViewModel.user?.login ?? ""
+                                withAnimation { currentPage = .repositories }
                             }
                         }
                         .padding(.bottom, 20)

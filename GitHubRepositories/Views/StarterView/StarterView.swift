@@ -21,7 +21,7 @@ struct StarterView: View {
     var body: some View {
         switch currentPage {
         case .auth: AuthView(login: $login, currentPage: $currentPage)
-        case .repositories: RepositoriesView(login: login)
+        case .repositories: RepositoriesListView(login: login)
         }
     }
 }

@@ -10,21 +10,17 @@ import Foundation
 class AuthViewModel: ObservableObject {
     // MARK: - Property Wrappers
     @Published var user: User?
-    @Published var isWrongToken = false
     
     // MARK: - Public Methods
-    func getUser(from token: String, completion: @escaping (StarterPage) -> Void) {
-        isWrongToken = false
-        
+    func getUser(from token: String, completion: @escaping (Bool) -> Void) {
         NetworkManager.shared.fetchUser(from: UserURL.user.rawValue, with: token) { [unowned self] result in
             switch result {
             case .success(let user):
                 self.user = user
-                completion(.repositories)
+                completion(false)
             case .failure(let error):
                 DispatchQueue.main.async {
-                    isWrongToken = true
-                    completion(.auth)
+                    completion(true)
                 }
                 print(error.rawValue)
             }
