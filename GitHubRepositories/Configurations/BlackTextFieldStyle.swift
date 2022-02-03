@@ -8,21 +8,11 @@
 import SwiftUI
 
 struct BlackTextFieldStyle: TextFieldStyle {
-    // MARK: - Property Wrappers
-    @Binding var text: String
-    @Binding var isEditingText: Bool
-    
     // MARK: - Public Properties
+    let text: String
     let placeholder: String
+    let isEditingText: Bool
     let isWrongToken: Bool
-    
-    // MARK: - Initializers
-    init(text: Binding<String>, isEditingText: Binding<Bool>, placeholder: String, isWrongToken: Bool = false) {
-        _text = text
-        _isEditingText = isEditingText
-        self.placeholder = placeholder
-        self.isWrongToken = isWrongToken
-    }
     
     // MARK: - body Method
     func _body(configuration: TextField<Self._Label>) -> some View {

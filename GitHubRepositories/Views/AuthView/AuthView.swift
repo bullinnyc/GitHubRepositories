@@ -69,9 +69,9 @@ struct AuthView: View {
                                 .disableAutocorrection(true)
                                 .textFieldStyle(
                                     BlackTextFieldStyle(
-                                        text: $token,
-                                        isEditingText: $isEditingText,
+                                        text: token,
                                         placeholder: "Personal access token",
+                                        isEditingText: isEditingText,
                                         isWrongToken: authViewModel.isWrongToken
                                     )
                                 )
