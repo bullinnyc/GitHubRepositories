@@ -13,7 +13,7 @@ class RepositoriesViewModel: ObservableObject {
     
     // MARK: - Public Methods
     func getRepo(for user: String) {
-        NetworkManager.shared.fetchRepo(from: RepositoryURL.repo.rawValue, with: user) { [unowned self] result in
+        NetworkManager.shared.fetchRepo(from: RepositoryURL.repo.rawValue, for: user) { [unowned self] result in
             switch result {
             case .success(let repositories):
                 self.repositories = repositories

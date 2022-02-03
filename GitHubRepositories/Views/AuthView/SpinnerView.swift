@@ -20,7 +20,10 @@ struct SpinnerView: View {
                 style: StrokeStyle(lineWidth: 3, lineCap: .round)
             )
             .rotationEffect(Angle(degrees: animate ? 360 : 0))
-            .animation(.linear(duration: 0.8).repeatForever(autoreverses: false), value: animate)
+            .animation(
+                .linear(duration: 0.8).repeatForever(autoreverses: false),
+                value: animate
+            )
             .onAppear {
                 animate = true
             }

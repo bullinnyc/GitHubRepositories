@@ -8,26 +8,45 @@
 import SwiftUI
 
 struct BlackTextFieldStyle: TextFieldStyle {
+    // MARK: - Property Wrappers
+    @Binding var text: String
+    @Binding var isEditingText: Bool
+    
     // MARK: - Public Properties
+    let placeholder: String
     let isWrongToken: Bool
     
     // MARK: - Initializers
-    init(isWrongToken: Bool = false) {
+    init(text: Binding<String>, isEditingText: Binding<Bool>, placeholder: String, isWrongToken: Bool = false) {
+        _text = text
+        _isEditingText = isEditingText
+        self.placeholder = placeholder
         self.isWrongToken = isWrongToken
     }
     
     // MARK: - body Method
     func _body(configuration: TextField<Self._Label>) -> some View {
-        configuration
-        .frame(height: 40)
+        ZStack(alignment: .leading) {
+            if text.isEmpty {
+                Text(placeholder)
+                    .foregroundColor(.gray)
+            }
+            
+            configuration
+        }
+        .frame(height: 32)
         .padding(8)
         .background(Color.black)
         .foregroundColor(.white)
-        .autocapitalization(.none)
         .cornerRadius(8)
+        .autocapitalization(.none)
         .overlay(
             RoundedRectangle(cornerRadius: 8)
-                .stroke(isWrongToken ? Color(.red) : Color(.white))
+                .stroke(
+                    isWrongToken
+                    ? .red
+                    : isEditingText ? .blue.opacity(0.8) : .gray.opacity(0.4)
+                )
         )
     }
 }

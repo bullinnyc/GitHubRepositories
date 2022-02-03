@@ -50,8 +50,8 @@ class NetworkManager {
         }.resume()
     }
     
-    func fetchRepo(from url: String, with username: String, completion: @escaping (Result<[Repository], NetworkError>) -> Void) {
-        guard let url = URL(string: "\(url)/\(username)/repos") else {
+    func fetchRepo(from url: String, for user: String, completion: @escaping (Result<[Repository], NetworkError>) -> Void) {
+        guard let url = URL(string: "\(url)/\(user)/repos") else {
             return completion(.failure(.badURL))
         }
         

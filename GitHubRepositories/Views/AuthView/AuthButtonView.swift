@@ -8,11 +8,9 @@
 import SwiftUI
 
 struct AuthButtonView: View {
-    // MARK: - Property Wrappers
-    @Binding var isLoading: Bool
-    
     // MARK: - Public Properties
     let text: String
+    let isLoading: Bool
     let width: CGFloat
     let height: CGFloat
     let action: () -> Void
@@ -27,12 +25,7 @@ struct AuthButtonView: View {
                     .foregroundColor(.white)
                     .frame(width: width, height: height)
             }
-            .buttonStyle(ForestButtonStyle())
-            
-            if isLoading {
-                SpinnerView()
-                    .frame(width: 24)
-            }
+            .buttonStyle(ForestButtonStyle(isLoading: isLoading))
         }
         .frame(height: height)
     }
@@ -45,7 +38,7 @@ struct AuthButtonView_Previews: PreviewProvider {
             Color.black
                 .ignoresSafeArea()
             
-            AuthButtonView(isLoading: .constant(true), text: "Sign In", width: 300, height: 48) {}
+            AuthButtonView(text: "Sign In", isLoading: true, width: 300, height: 48) {}
         }
     }
 }
