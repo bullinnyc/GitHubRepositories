@@ -120,7 +120,8 @@
 			children = (
 				DB31BAB427AA6083009F0F74 /* StarterView */,
 				DB31BAB527AA6092009F0F74 /* AuthView */,
-				DB31BAB627AA60AB009F0F74 /* RepositoriesView */,
+				DB31BAB627AA60AB009F0F74 /* RepositoriesListView */,
+				DB67354327ACE80A002DF23E /* RepositoryDetailView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -171,7 +172,7 @@
 			path = AuthView;
 			sourceTree = "<group>";
 		};
-		DB31BAB627AA60AB009F0F74 /* RepositoriesView */ = {
+		DB31BAB627AA60AB009F0F74 /* RepositoriesListView */ = {
 			isa = PBXGroup;
 			children = (
 				DB31BAD427ABBD11009F0F74 /* RepositoryViewModel.swift */,
@@ -180,7 +181,7 @@
 				DB31BAD227ABBBFE009F0F74 /* RepositoryRowView.swift */,
 				DB67353D27ACCBBE002DF23E /* ToolbarExitButtonView.swift */,
 			);
-			path = RepositoriesView;
+			path = RepositoriesListView;
 			sourceTree = "<group>";
 		};
 		DB31BAC327AA9A16009F0F74 /* Modifiers */ = {
@@ -200,6 +201,13 @@
 				DB31BAD027AB9809009F0F74 /* Extension + UIDevice.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DB67354327ACE80A002DF23E /* RepositoryDetailView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RepositoryDetailView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
