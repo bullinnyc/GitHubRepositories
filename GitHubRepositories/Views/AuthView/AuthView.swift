@@ -104,11 +104,9 @@ struct AuthView: View {
                                 
                                 guard !isError else { return }
                                 
-                                UIApplication.shared.endEditing()
                                 login = authViewModel.user?.login ?? ""
-                                withAnimation {
-                                    pageManager.currentPage = .repositories
-                                }
+                                UIApplication.shared.endEditing()
+                                pageManager.currentPage = .repositories
                             }
                         }
                         .padding(.bottom, 20)

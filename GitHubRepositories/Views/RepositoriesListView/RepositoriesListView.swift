@@ -21,9 +21,9 @@ struct RepositoriesListView: View {
         NavigationView {
             List {
                 ForEach(listViewModel.repositories) { repository in
-                    NavigationLink {
-                        
-                    } label: {
+                    NavigationLink(
+                        destination: RepositoryDetailView(itemViewModel: repository)
+                    ) {
                         RepositoryRowView(itemViewModel: repository)
                     }
                 }
@@ -57,5 +57,6 @@ struct RepositoriesListView: View {
 struct RepositoriesView_Previews: PreviewProvider {
     static var previews: some View {
         RepositoriesListView(login: "username")
+        // Notes: Line 51 uncomment for use Preview Provider
     }
 }

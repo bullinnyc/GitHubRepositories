@@ -32,6 +32,12 @@
 		DB31BAD527ABBD11009F0F74 /* RepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31BAD427ABBD11009F0F74 /* RepositoryViewModel.swift */; };
 		DB67353E27ACCBBE002DF23E /* ToolbarExitButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67353D27ACCBBE002DF23E /* ToolbarExitButtonView.swift */; };
 		DB67354027ACCFE0002DF23E /* PageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67353F27ACCFE0002DF23E /* PageManager.swift */; };
+		DB67354527ACE899002DF23E /* RepositoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67354427ACE899002DF23E /* RepositoryDetailView.swift */; };
+		DB67354727AD016B002DF23E /* LicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67354627AD016B002DF23E /* LicenseView.swift */; };
+		DB67354927AD23AC002DF23E /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67354827AD23AC002DF23E /* InfoView.swift */; };
+		DB67354B27AD3E11002DF23E /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67354A27AD3E11002DF23E /* License.swift */; };
+		DB67354D27AD54D3002DF23E /* LicenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67354C27AD54D2002DF23E /* LicenseViewModel.swift */; };
+		DB67355027AD74D7002DF23E /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67354F27AD74D7002DF23E /* Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +67,12 @@
 		DB31BAD427ABBD11009F0F74 /* RepositoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewModel.swift; sourceTree = "<group>"; };
 		DB67353D27ACCBBE002DF23E /* ToolbarExitButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarExitButtonView.swift; sourceTree = "<group>"; };
 		DB67353F27ACCFE0002DF23E /* PageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageManager.swift; sourceTree = "<group>"; };
+		DB67354427ACE899002DF23E /* RepositoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailView.swift; sourceTree = "<group>"; };
+		DB67354627AD016B002DF23E /* LicenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseView.swift; sourceTree = "<group>"; };
+		DB67354827AD23AC002DF23E /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		DB67354A27AD3E11002DF23E /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
+		DB67354C27AD54D2002DF23E /* LicenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseViewModel.swift; sourceTree = "<group>"; };
+		DB67354F27AD74D7002DF23E /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +113,7 @@
 				DB31BAC327AA9A16009F0F74 /* Modifiers */,
 				DB31BAA527A9243F009F0F74 /* Configurations */,
 				DB31BAC627AAA254009F0F74 /* Extensions */,
+				DB67354E27AD74A6002DF23E /* Helpers */,
 				DB31BA9A27A91619009F0F74 /* Assets.xcassets */,
 				DB31BA9C27A91619009F0F74 /* Preview Content */,
 			);
@@ -149,6 +162,7 @@
 			children = (
 				DB31BAAE27AA557A009F0F74 /* User.swift */,
 				DB31BAB027AA55F3009F0F74 /* Repository.swift */,
+				DB67354A27AD3E11002DF23E /* License.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -176,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				DB31BAD427ABBD11009F0F74 /* RepositoryViewModel.swift */,
+				DB67354C27AD54D2002DF23E /* LicenseViewModel.swift */,
 				DB31BAB727AA670A009F0F74 /* RepositoriesListViewModel.swift */,
 				DB31BAA627A92941009F0F74 /* RepositoriesListView.swift */,
 				DB31BAD227ABBBFE009F0F74 /* RepositoryRowView.swift */,
@@ -206,8 +221,19 @@
 		DB67354327ACE80A002DF23E /* RepositoryDetailView */ = {
 			isa = PBXGroup;
 			children = (
+				DB67354427ACE899002DF23E /* RepositoryDetailView.swift */,
+				DB67354627AD016B002DF23E /* LicenseView.swift */,
+				DB67354827AD23AC002DF23E /* InfoView.swift */,
 			);
 			path = RepositoryDetailView;
+			sourceTree = "<group>";
+		};
+		DB67354E27AD74A6002DF23E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DB67354F27AD74D7002DF23E /* Helper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,6 +310,7 @@
 				DB31BABB27AA72FF009F0F74 /* AuthButtonView.swift in Sources */,
 				DB31BAB127AA55F3009F0F74 /* Repository.swift in Sources */,
 				DB31BAA927A929B9009F0F74 /* AuthViewModel.swift in Sources */,
+				DB67354B27AD3E11002DF23E /* License.swift in Sources */,
 				DB31BACA27AAA7E8009F0F74 /* Extension + UIWindow.swift in Sources */,
 				DB31BAA727A92942009F0F74 /* RepositoriesListView.swift in Sources */,
 				DB31BAAF27AA557B009F0F74 /* User.swift in Sources */,
@@ -291,17 +318,22 @@
 				DB31BAC827AAA275009F0F74 /* Extension + UIApplication.swift in Sources */,
 				DB31BAB327AA5B4F009F0F74 /* StarterView.swift in Sources */,
 				DB31BAD127AB980A009F0F74 /* Extension + UIDevice.swift in Sources */,
+				DB67354727AD016B002DF23E /* LicenseView.swift in Sources */,
 				DB67353E27ACCBBE002DF23E /* ToolbarExitButtonView.swift in Sources */,
 				DB2DD91727ABFECC001ACB18 /* NavigationBarModifier.swift in Sources */,
 				DB31BAD527ABBD11009F0F74 /* RepositoryViewModel.swift in Sources */,
+				DB67355027AD74D7002DF23E /* Helper.swift in Sources */,
 				DB31BAAC27A93477009F0F74 /* NetworkManager.swift in Sources */,
+				DB67354527ACE899002DF23E /* RepositoryDetailView.swift in Sources */,
 				DB31BA9927A91617009F0F74 /* AuthView.swift in Sources */,
 				DB31BABD27AA762E009F0F74 /* SpinnerView.swift in Sources */,
 				DB67354027ACCFE0002DF23E /* PageManager.swift in Sources */,
+				DB67354D27AD54D3002DF23E /* LicenseViewModel.swift in Sources */,
 				DB31BAC027AA91C7009F0F74 /* ForestButtonStyle.swift in Sources */,
 				DB31BAC527AA9A57009F0F74 /* Hidden.swift in Sources */,
 				DB31BAD327ABBBFE009F0F74 /* RepositoryRowView.swift in Sources */,
 				DB31BAC227AA927E009F0F74 /* BlackTextFieldStyle.swift in Sources */,
+				DB67354927AD23AC002DF23E /* InfoView.swift in Sources */,
 				DB31BA9727A91617009F0F74 /* GitHubRepositoriesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
