@@ -30,6 +30,8 @@
 		DB31BAD127AB980A009F0F74 /* Extension + UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31BAD027AB9809009F0F74 /* Extension + UIDevice.swift */; };
 		DB31BAD327ABBBFE009F0F74 /* RepositoryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31BAD227ABBBFE009F0F74 /* RepositoryRowView.swift */; };
 		DB31BAD527ABBD11009F0F74 /* RepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31BAD427ABBD11009F0F74 /* RepositoryViewModel.swift */; };
+		DB67353E27ACCBBE002DF23E /* ToolbarExitButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67353D27ACCBBE002DF23E /* ToolbarExitButtonView.swift */; };
+		DB67354027ACCFE0002DF23E /* PageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67353F27ACCFE0002DF23E /* PageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,8 @@
 		DB31BAD027AB9809009F0F74 /* Extension + UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIDevice.swift"; sourceTree = "<group>"; };
 		DB31BAD227ABBBFE009F0F74 /* RepositoryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryRowView.swift; sourceTree = "<group>"; };
 		DB31BAD427ABBD11009F0F74 /* RepositoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewModel.swift; sourceTree = "<group>"; };
+		DB67353D27ACCBBE002DF23E /* ToolbarExitButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarExitButtonView.swift; sourceTree = "<group>"; };
+		DB67353F27ACCFE0002DF23E /* PageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				DB31BAAB27A93477009F0F74 /* NetworkManager.swift */,
+				DB67353F27ACCFE0002DF23E /* PageManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 				DB31BAB727AA670A009F0F74 /* RepositoriesListViewModel.swift */,
 				DB31BAA627A92941009F0F74 /* RepositoriesListView.swift */,
 				DB31BAD227ABBBFE009F0F74 /* RepositoryRowView.swift */,
+				DB67353D27ACCBBE002DF23E /* ToolbarExitButtonView.swift */,
 			);
 			path = RepositoriesView;
 			sourceTree = "<group>";
@@ -277,11 +283,13 @@
 				DB31BAC827AAA275009F0F74 /* Extension + UIApplication.swift in Sources */,
 				DB31BAB327AA5B4F009F0F74 /* StarterView.swift in Sources */,
 				DB31BAD127AB980A009F0F74 /* Extension + UIDevice.swift in Sources */,
+				DB67353E27ACCBBE002DF23E /* ToolbarExitButtonView.swift in Sources */,
 				DB2DD91727ABFECC001ACB18 /* NavigationBarModifier.swift in Sources */,
 				DB31BAD527ABBD11009F0F74 /* RepositoryViewModel.swift in Sources */,
 				DB31BAAC27A93477009F0F74 /* NetworkManager.swift in Sources */,
 				DB31BA9927A91617009F0F74 /* AuthView.swift in Sources */,
 				DB31BABD27AA762E009F0F74 /* SpinnerView.swift in Sources */,
+				DB67354027ACCFE0002DF23E /* PageManager.swift in Sources */,
 				DB31BAC027AA91C7009F0F74 /* ForestButtonStyle.swift in Sources */,
 				DB31BAC527AA9A57009F0F74 /* Hidden.swift in Sources */,
 				DB31BAD327ABBBFE009F0F74 /* RepositoryRowView.swift in Sources */,

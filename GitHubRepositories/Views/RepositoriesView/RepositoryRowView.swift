@@ -51,7 +51,8 @@ struct RepositoryRowView_Previews: PreviewProvider {
                 .ignoresSafeArea()
             
             RepositoryRowView(
-                itemViewModel: RepositoryViewModel(repository: Repository.getRepository()))
+                itemViewModel: RepositoryViewModel(repository: Repository.getRepository())
+            )
         }
     }
 }

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AuthView: View {
     // MARK: - Property Wrappers
+    @EnvironmentObject private var pageManager: PageManager
+    
     @StateObject private var authViewModel = AuthViewModel()
     
     @State private var token = ""
@@ -17,7 +19,6 @@ struct AuthView: View {
     @State private var isWrongToken = false
     
     @Binding var login: String
-    @Binding var currentPage: StarterPage
     
     // MARK: - body Property
     var body: some View {
@@ -105,7 +106,9 @@ struct AuthView: View {
                                 
                                 UIApplication.shared.endEditing()
                                 login = authViewModel.user?.login ?? ""
-                                withAnimation { currentPage = .repositories }
+                                withAnimation {
+                                    pageManager.currentPage = .repositories
+                                }
                             }
                         }
                         .padding(.bottom, 20)
@@ -123,6 +126,6 @@ struct AuthView: View {
 // MARK: - Preview Provider
 struct AuthView_Previews: PreviewProvider {
     static var previews: some View {
-        AuthView(login: .constant("username"), currentPage: .constant(.auth))
+        AuthView(login: .constant("username"))
     }
 }

@@ -7,22 +7,21 @@
 
 import SwiftUI
 
-enum StarterPage {
-    case auth
-    case repositories
-}
-
 struct StarterView: View {
     // MARK: - Property Wrappers
-    @State private var currentPage: StarterPage = .auth
+    @StateObject private var pageManager = PageManager.shared
+    
     @State private var login = ""
     
     // MARK: - body Property
     var body: some View {
-        switch currentPage {
-        case .auth: AuthView(login: $login, currentPage: $currentPage)
-        case .repositories: RepositoriesListView(login: login)
+        Group {
+            switch pageManager.currentPage {
+            case .auth: AuthView(login: $login)
+            case .repositories: RepositoriesListView(login: login)
+            }
         }
+        .environmentObject(pageManager)
     }
 }
 

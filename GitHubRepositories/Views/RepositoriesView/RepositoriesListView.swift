@@ -9,6 +9,8 @@ import SwiftUI
 
 struct RepositoriesListView: View {
     // MARK: - Property Wrappers
+    @EnvironmentObject private var pageManager: PageManager
+    
     @StateObject private var listViewModel = RepositoriesListViewModel()
     
     // MARK: - Public Properties
@@ -32,12 +34,21 @@ struct RepositoriesListView: View {
             }
             .listStyle(.plain)
             .background(Color.black.ignoresSafeArea())
-            .navigationTitle("Repositories")
             .navigationBarColor(backgroundColor: .black, titleColor: .white)
+            .navigationTitle("Repositories")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    ToolbarExitButtonView(image: "exit") {
+                        withAnimation {
+                            pageManager.currentPage = .auth
+                        }
+                    }
+                }
+            }
         }
         .onAppear {
             listViewModel.getRepo(for: login)
-//            listViewModel.getRepoForPreviewProvider()
+//            listViewModel.getRepoForPreviewProvider() // Using for preview
         }
     }
 }
