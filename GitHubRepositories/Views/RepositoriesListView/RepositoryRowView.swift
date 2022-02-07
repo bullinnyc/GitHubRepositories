@@ -29,13 +29,15 @@ struct RepositoryRowView: View {
             .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 16))
             .offset(y: -2)
             
-            Text(itemViewModel.description ?? "")
-                .font(.subheadline)
-                .lineLimit(3)
-                .foregroundColor(.white)
-                .fixedSize(horizontal: false, vertical: true)
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 16))
-                .offset(y: 2)
+            if let description = itemViewModel.description {
+                Text(description)
+                    .font(.subheadline)
+                    .lineLimit(3)
+                    .foregroundColor(.white)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 16))
+                    .offset(y: 2)
+            }
             
             Divider()
                 .background(Color.white.opacity(0.6))
