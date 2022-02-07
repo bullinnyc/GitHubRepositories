@@ -32,7 +32,7 @@ struct AuthView: View {
                 ZStack(alignment: .bottom) {
                     VStack {
                         Image("logo")
-                            .resizable().resizable()
+                            .resizable()
                             .frame(
                                 width: UIWindow.isPortrait
                                 ? geoSize.width * 0.35

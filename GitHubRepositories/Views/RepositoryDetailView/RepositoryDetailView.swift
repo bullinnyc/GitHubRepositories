@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MarkdownUI
 
 struct RepositoryDetailView: View {
     // MARK: - Property Wrappers
@@ -23,12 +24,12 @@ struct RepositoryDetailView: View {
                 let size = geometry.size
                 
                 ScrollView(showsIndicators: false) {
-                    VStack(alignment: .leading) {
+                    VStack {
                         Link(destination: itemViewModel.repoUrl) {
                             Image("link")
                                 .scaleEffect(0.7)
                             
-                            Text(itemViewModel.repolinkName)
+                            Text(itemViewModel.repoLinkName)
                                 .font(.footnote)
                                 .fontWeight(.semibold)
                                 .lineLimit(1)
@@ -37,28 +38,44 @@ struct RepositoryDetailView: View {
                         .padding(.top)
                         .frame(width: size.width)
                         
-                        if itemViewModel.license != nil {
-                            LicenseView(itemViewModel: itemViewModel)
+                        if let license = itemViewModel.license {
+                            LicenseView(itemViewModel: license)
                                 .padding()
+                                .frame(minWidth: 320, maxWidth: 400)
                         }
                         
                         InfoView(itemViewModel: itemViewModel)
                             .frame(width: size.width)
                         
-                        Text(itemViewModel.name)
-                            .font(.title)
-                            .foregroundColor(.white)
-                            .padding(
-                                EdgeInsets(top: 6, leading: 8, bottom: 0, trailing: 8)
+                        // Work with markdown
+                        if let readme = itemViewModel.readme {
+                            Markdown(
+                                readme,
+                                baseURL: URL(string: itemViewModel.pathToContent)
                             )
-                        
-                        Text(itemViewModel.description)
-                            .font(.footnote)
-                            .foregroundColor(.white.opacity(0.8))
-                            .padding(
-                                EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8)
-                            )
-                            .offset(y: 2)
+                                .markdownStyle(
+                                    MarkdownStyle(
+                                        font: .subheadline,
+                                        foregroundColor: .white
+                                    )
+                                )
+                                .padding(8)
+                        } else {
+                            HoustonView(text: "404 NOT FOUND")
+                                .frame(
+                                    width: UIWindow.isPortrait
+                                    ? size.width
+                                    : size.width * 0.4,
+                                    height: UIWindow.isPortrait
+                                    ? size.width
+                                    : size.width * 0.4
+                                )
+                                .offset(
+                                    y: UIWindow.isPortrait
+                                    ? size.height * 0.12
+                                    : 0
+                                )
+                        }
                     }
                 }
             }
@@ -82,9 +99,17 @@ struct RepositoryDetailView_Previews: PreviewProvider {
     static var previews: some View {
         let preview = Repository.getRepository()
         
-        NavigationView {
-            RepositoryDetailView(itemViewModel: RepositoryViewModel(repository: preview))
+        if #available(iOS 15.0, *) {
+            NavigationView {
+                RepositoryDetailView(itemViewModel: RepositoryViewModel(repository: preview))
+            }
+            .navigationBarColor(backgroundColor: .black, titleColor: .white)
+//            .previewInterfaceOrientation(.landscapeLeft)
+        } else {
+            NavigationView {
+                RepositoryDetailView(itemViewModel: RepositoryViewModel(repository: preview))
+            }
+            .navigationBarColor(backgroundColor: .black, titleColor: .white)
         }
-        .navigationBarColor(backgroundColor: .black, titleColor: .white)
     }
 }

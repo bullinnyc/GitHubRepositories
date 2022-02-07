@@ -20,17 +20,12 @@ struct RepositoriesListView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(listViewModel.repositories) { repository in
-                    NavigationLink(
-                        destination: RepositoryDetailView(itemViewModel: repository)
-                    ) {
-                        RepositoryRowView(itemViewModel: repository)
-                    }
+                repositoriesList
+                
+                if listViewModel.canLoadNextPage {
+                    LoadingIndicatorView()
+                        .listRowBackground(Color.black)
                 }
-                .listRowBackground(Color.black)
-                .listRowInsets(
-                    EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: -20)
-                )
             }
             .listStyle(.plain)
             .background(Color.black.ignoresSafeArea())
@@ -51,12 +46,30 @@ struct RepositoriesListView: View {
 //            listViewModel.getRepoForPreviewProvider() // Using for preview
         }
     }
-}
+    
+    // MARK: - repositoriesList Private Property
+        private var repositoriesList: some View {
+            ForEach(listViewModel.repositories) { repository in
+                NavigationLink(
+                    destination: RepositoryDetailView(itemViewModel: repository)
+                ) {
+                    RepositoryRowView(itemViewModel: repository)
+                        .onAppear {
+                            listViewModel.onScrolledAtBottom(repository, for: login)
+                        }
+                }
+            }
+            .listRowBackground(Color.black)
+            .listRowInsets(
+                EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: -20)
+            )
+        }
+    }
 
 // MARK: - Preview Provider
 struct RepositoriesView_Previews: PreviewProvider {
     static var previews: some View {
         RepositoriesListView(login: "username")
-        // Notes: Line 51 uncomment for use Preview Provider
+        // Notes: Line 46 uncomment for use Preview Provider
     }
 }

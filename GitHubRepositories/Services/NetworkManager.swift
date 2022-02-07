@@ -50,8 +50,8 @@ class NetworkManager {
         }.resume()
     }
     
-    func fetchRepo(from url: String, for user: String, completion: @escaping (Result<[Repository], NetworkError>) -> Void) {
-        guard let url = URL(string: "\(url)/\(user)/repos") else {
+    func fetchRepo(from url: String, for user: String, perPage: Int, page: Int, completion: @escaping (Result<[Repository], NetworkError>) -> Void) {
+        guard let url = URL(string: "\(url)/\(user)/repos?per_page=\(perPage)&page=\(page)") else {
             return completion(.failure(.badURL))
         }
         
@@ -74,6 +74,31 @@ class NetworkManager {
             } catch {
                 print(error)
                 completion(.failure(.noDecodedData))
+            }
+        }.resume()
+    }
+    
+    func fetchReadme(from url: String, completion: @escaping (Result<String, NetworkError>) -> Void) {
+        let path = url + "README.md"
+        guard let url = URL(string: path) else { return completion(.failure(.badURL)) }
+        
+        let request = URLRequest(url: url)
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                return completion(.failure(.noData))
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                print("statusCode: \(httpResponse.statusCode)")
+            }
+            
+            guard let markdownText = String(data: data, encoding: .utf8) else {
+                return completion(.failure(.noDecodedData))
+            }
+            
+            DispatchQueue.main.async {
+                completion(.success(markdownText))
             }
         }.resume()
     }

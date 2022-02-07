@@ -11,15 +11,38 @@ class RepositoriesListViewModel: ObservableObject {
     // MARK: - Property Wrappers
     @Published var repositories: [RepositoryViewModel] = []
     
+    // MARK: - Public Properties
+    var canLoadNextPage = true
+    
+    // MARK: - Private Properties
+    private var perPage = 10
+    private var page = 1
+    
     // MARK: - Public Methods
     func getRepo(for user: String) {
-        NetworkManager.shared.fetchRepo(from: RepositoryURL.repo.rawValue, for: user) { [unowned self] result in
+        guard canLoadNextPage else { return }
+        
+        NetworkManager.shared.fetchRepo(from: RepositoryURL.repo.rawValue, for: user, perPage: perPage, page: page) { [unowned self] result in
             switch result {
             case .success(let repositories):
-                self.repositories = repositories.map { RepositoryViewModel(repository: $0) }
+                let repos = repositories.map { RepositoryViewModel(repository: $0) }
+                
+                self.repositories.append(contentsOf: repos)
+                page += 1
+                canLoadNextPage = repos.count == perPage
             case .failure(let error):
+                DispatchQueue.main.async {
+                    canLoadNextPage = false
+                }
+                
                 print(error.rawValue)
             }
+        }
+    }
+    
+    func onScrolledAtBottom(_ repository: RepositoryViewModel, for user: String) {
+        if repositories.last == repository {
+            getRepo(for: user)
         }
     }
 }

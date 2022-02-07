@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LicenseView: View {
     // MARK: - Public Properties
-    let itemViewModel: RepositoryViewModel
+    let itemViewModel: LicenseViewModel
     
     // MARK: - body Property
     var body: some View {
@@ -22,10 +22,9 @@ struct LicenseView: View {
             
             Spacer()
             
-            Text(itemViewModel.license?.name ?? "")
+            Text(itemViewModel.name)
                 .fontWeight(.semibold)
                 .foregroundColor(.white)
-                .padding(.trailing)
         }
     }
 }
@@ -33,13 +32,13 @@ struct LicenseView: View {
 // MARK: - Preview Provider
 struct LicenseView_Previews: PreviewProvider {
     static var previews: some View {
-        let preview = Repository.getRepository()
+        let preview = License.getLicense()
         
         ZStack {
             Color.black
                 .ignoresSafeArea()
             
-            LicenseView(itemViewModel: RepositoryViewModel(repository: preview))
+            LicenseView(itemViewModel: LicenseViewModel(license: preview))
         }
     }
 }

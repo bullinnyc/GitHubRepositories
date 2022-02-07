@@ -21,7 +21,7 @@ struct RepositoryRowView: View {
                 
                 Spacer()
                 
-                Text(itemViewModel.language)
+                Text(itemViewModel.language ?? "")
                     .fontWeight(.semibold)
                     .font(.footnote)
                     .foregroundColor(Color(itemViewModel.getLanguageColor()))
@@ -29,7 +29,7 @@ struct RepositoryRowView: View {
             .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 16))
             .offset(y: -2)
             
-            Text(itemViewModel.description)
+            Text(itemViewModel.description ?? "")
                 .font(.subheadline)
                 .lineLimit(3)
                 .foregroundColor(.white)
@@ -40,6 +40,7 @@ struct RepositoryRowView: View {
             Divider()
                 .background(Color.white.opacity(0.6))
         }
+        .frame(idealWidth: .infinity, maxWidth: .infinity, alignment: .center)
     }
 }
 

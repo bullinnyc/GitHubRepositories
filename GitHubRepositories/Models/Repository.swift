@@ -10,52 +10,59 @@ import Foundation
 
 enum RepositoryURL: String {
     case repo = "https://api.github.com/users"
+    case content = "https://raw.githubusercontent.com/"
 }
 
 struct Repository: Decodable {
     // MARK: - Public Properties
     let id: Int
     let name: String
-    let description: String
-    let language: String
+    let description: String?
+    let language: String?
     let htmlUrl: String
     let stargazersCount: Int
     let forksCount: Int
     let watchersCount: Int
+    let defaultBranch: String
     let license: License?
+    let owner: Owner
 }
 
 // MARK: - Ext. Get repositories for preview
 extension Repository {
     static func getRepository() -> Repository {
         Repository(
-            id: 454767611,
-            name: "Project 1. In which there are a lot of letters.",
-            description: "Some long description of the project. And again 😜",
+            id: 68730555,
+            name: "Movie",
+            description: "Movies list with detailed view built with the MVVM architecture and SwiftUI framework.",
             language: "Swift",
-            htmlUrl: "https://github.com/user/Project1InWhichThereAreALotOfLetters",
-            stargazersCount: 842,
+            htmlUrl: "https://github.com/bullinnyc/Movie",
+            stargazersCount: 42,
             forksCount: 8,
-            watchersCount: 1088,
-            license: License.getLicense()
+            watchersCount: 1024,
+            defaultBranch: "main",
+            license: License.getLicense(),
+            owner: Owner.getOwner()
         )
     }
     
     static func getRepositories() -> [Repository] {
         [
             Repository(
-                id: 454767611,
-                name: "Project 1. In which there are a lot of letters.",
-                description: "Some long description of the project. And again 😜",
+                id: 68730555,
+                name: "Movie",
+                description: "Movies list with detailed view built with the MVVM architecture and SwiftUI framework.",
                 language: "Swift",
-                htmlUrl: "https://github.com/user/Project1InWhichThereAreALotOfLetters",
-                stargazersCount: 842,
+                htmlUrl: "https://github.com/bullinnyc/Movie",
+                stargazersCount: 42,
                 forksCount: 8,
-                watchersCount: 1088,
-                license: License.getLicense()
+                watchersCount: 1024,
+                defaultBranch: "main",
+                license: License.getLicense(),
+                owner: Owner.getOwner()
             ),
             Repository(
-                id: 122456566,
+                id: 12245656,
                 name: "Project 2",
                 description: "Some long description of the project. And again, and again, and again 😋",
                 language: "Kotlin",
@@ -63,10 +70,12 @@ extension Repository {
                 stargazersCount: 56,
                 forksCount: 3,
                 watchersCount: 784,
-                license: nil
+                defaultBranch: "main",
+                license: nil,
+                owner: Owner.getOwner()
             ),
             Repository(
-                id: 987754545,
+                id: 98775454,
                 name: "Project 3",
                 description: letterImitation(2000),
                 language: "Ruby",
@@ -74,10 +83,12 @@ extension Repository {
                 stargazersCount: 0,
                 forksCount: 48,
                 watchersCount: 369,
-                license: nil
+                defaultBranch: "main",
+                license: nil,
+                owner: Owner.getOwner()
             ),
             Repository(
-                id: 843547611,
+                id: 84354761,
                 name: "Project 4",
                 description: "Some long description of the project. And again 😜",
                 language: "Swift",
@@ -85,10 +96,12 @@ extension Repository {
                 stargazersCount: 42,
                 forksCount: 158,
                 watchersCount: 4082,
-                license: nil
+                defaultBranch: "main",
+                license: nil,
+                owner: Owner.getOwner()
             ),
             Repository(
-                id: 295852020,
+                id: 29585202,
                 name: "Project 5",
                 description: letterImitation(200),
                 language: "JavaScript",
@@ -96,10 +109,12 @@ extension Repository {
                 stargazersCount: 1,
                 forksCount: 0,
                 watchersCount: 5,
-                license: nil
+                defaultBranch: "main",
+                license: nil,
+                owner: Owner.getOwner()
             ),
             Repository(
-                id: 783417087,
+                id: 78341708,
                 name: "Project 6",
                 description: "Some long description of the project. And again, and again, and again 😋",
                 language: "Kotlin",
@@ -107,7 +122,9 @@ extension Repository {
                 stargazersCount: 439,
                 forksCount: 758,
                 watchersCount: 12326,
-                license: nil
+                defaultBranch: "main",
+                license: nil,
+                owner: Owner.getOwner()
             )
         ]
     }
