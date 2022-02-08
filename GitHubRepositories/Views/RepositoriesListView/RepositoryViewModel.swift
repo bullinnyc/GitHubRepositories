@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 class RepositoryViewModel: ObservableObject, Identifiable {
     // MARK: - Public Properties
@@ -59,6 +60,7 @@ class RepositoryViewModel: ObservableObject, Identifiable {
     
     // MARK: - Private Properties
     private let repository: Repository
+    private var subscriptions: Set<AnyCancellable> = []
     
     // MARK: - Initializers
     init(repository: Repository) {
@@ -79,18 +81,27 @@ class RepositoryViewModel: ObservableObject, Identifiable {
     
     // MARK: - Private Methods
     private func getReadme() {
-        NetworkManager.shared.fetchReadme(from: pathToContent) { [unowned self] result in
-            switch result {
-            case .success(let markdown):
-                if markdown.contains("404") {
-                    return print("Houston, we have a problem")
-                }
-                
-                self.readme = markdown
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
+        NetworkManager.shared.fetchReadme(from: pathToContent)
+            .sink(receiveCompletion: onReceive, receiveValue: onReceive)
+            .store(in: &subscriptions)
+    }
+    
+    // MARK: - Private Methods
+    private func onReceive(_ completion: Subscribers.Completion<Error>) {
+        switch completion {
+        case .finished:
+            break
+        case .failure(let error):
+            print(error.localizedDescription)
         }
+    }
+    
+    private func onReceive(_ batch: String) {
+        if batch.contains("404") {
+            return print("Houston, we have a problem")
+        }
+        
+        readme = batch
     }
 }
 
