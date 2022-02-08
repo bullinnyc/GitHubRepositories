@@ -12,7 +12,7 @@ class RepositoriesListViewModel: ObservableObject {
     @Published var repositories: [RepositoryViewModel] = []
     
     // MARK: - Public Properties
-    var canLoadNextPage = true
+    var isCanLoadNextPage = true
     
     // MARK: - Private Properties
     private var perPage = 10
@@ -20,7 +20,7 @@ class RepositoriesListViewModel: ObservableObject {
     
     // MARK: - Public Methods
     func getRepo(for user: String) {
-        guard canLoadNextPage else { return }
+        guard isCanLoadNextPage else { return }
         
         NetworkManager.shared.fetchRepo(from: RepositoryURL.repo.rawValue, for: user, perPage: perPage, page: page) { [unowned self] result in
             switch result {
@@ -29,10 +29,10 @@ class RepositoriesListViewModel: ObservableObject {
                 
                 self.repositories.append(contentsOf: repos)
                 page += 1
-                canLoadNextPage = repos.count == perPage
+                isCanLoadNextPage = repos.count == perPage
             case .failure(let error):
                 DispatchQueue.main.async {
-                    canLoadNextPage = false
+                    isCanLoadNextPage = false
                 }
                 
                 print(error.rawValue)
