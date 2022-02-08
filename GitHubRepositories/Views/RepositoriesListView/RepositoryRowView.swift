@@ -26,7 +26,7 @@ struct RepositoryRowView: View {
                     .font(.footnote)
                     .foregroundColor(Color(itemViewModel.getLanguageColor()))
             }
-            .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 16))
+            .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 58))
             .offset(y: -2)
             
             if let description = itemViewModel.description {
@@ -35,7 +35,7 @@ struct RepositoryRowView: View {
                     .lineLimit(3)
                     .foregroundColor(.white)
                     .fixedSize(horizontal: false, vertical: true)
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 16))
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 58))
                     .offset(y: 2)
             }
             

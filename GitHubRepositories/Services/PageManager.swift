@@ -10,6 +10,7 @@ import Foundation
 enum CurrentPage {
     case auth
     case repositories
+    case errorNetwork
 }
 
 class PageManager: ObservableObject {

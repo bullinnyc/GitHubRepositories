@@ -18,7 +18,7 @@ struct AuthView: View {
     @State private var isEditingText = false
     @State private var isWrongToken = false
     
-    @Binding var login: String
+    @Binding var user: String
     
     // MARK: - body Property
     var body: some View {
@@ -86,11 +86,11 @@ struct AuthView: View {
                         
                         Spacer()
                         
-                        AuthButtonView(
+                        ForestButtonView(
                             text: "Sign In",
-                            isLoading: isLoading,
                             width: 310,
-                            height: 48
+                            height: 48,
+                            isLoading: isLoading
                         ) {
                             guard !token.isEmpty else {
                                 return withAnimation { isWrongToken = true }
@@ -104,7 +104,7 @@ struct AuthView: View {
                                 
                                 guard !isError else { return }
                                 
-                                login = authViewModel.user?.login ?? ""
+                                user = authViewModel.user?.login ?? ""
                                 UIApplication.shared.endEditing()
                                 pageManager.currentPage = .repositories
                             }
@@ -124,6 +124,6 @@ struct AuthView: View {
 // MARK: - Preview Provider
 struct AuthView_Previews: PreviewProvider {
     static var previews: some View {
-        AuthView(login: .constant("username"))
+        AuthView(user: .constant("username"))
     }
 }

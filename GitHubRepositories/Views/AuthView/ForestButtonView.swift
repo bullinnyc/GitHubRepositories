@@ -1,5 +1,5 @@
 //
-//  AuthButtonView.swift
+//  ForestButtonView.swift
 //  GitHubRepositories
 //
 //  Created by Dmitry Kononchuk on 02.02.2022.
@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct AuthButtonView: View {
+struct ForestButtonView: View {
     // MARK: - Public Properties
     let text: String
-    let isLoading: Bool
     let width: CGFloat
     let height: CGFloat
+    var isLoading: Bool = false
     let action: () -> Void
     
     // MARK: - body Property
@@ -38,7 +38,7 @@ struct AuthButtonView_Previews: PreviewProvider {
             Color.black
                 .ignoresSafeArea()
             
-            AuthButtonView(text: "Sign In", isLoading: true, width: 300, height: 48) {}
+            ForestButtonView(text: "Sign In", width: 300, height: 48, isLoading: true) {}
         }
     }
 }

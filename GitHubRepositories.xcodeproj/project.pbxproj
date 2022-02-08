@@ -10,6 +10,8 @@
 		DB01D2FA27AE801A00DA13D2 /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB01D2F927AE801A00DA13D2 /* Owner.swift */; };
 		DB01D2FC27AE819E00DA13D2 /* OwnerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB01D2FB27AE819E00DA13D2 /* OwnerViewModel.swift */; };
 		DB01D2FF27AFC60700DA13D2 /* HoustonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB01D2FE27AFC60700DA13D2 /* HoustonView.swift */; };
+		DB229FFD27B152A400D0AE16 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB229FFC27B152A400D0AE16 /* NetworkMonitor.swift */; };
+		DB22A00027B1541C00D0AE16 /* ErrorNetworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB229FFF27B1541C00D0AE16 /* ErrorNetworkView.swift */; };
 		DB2DD91727ABFECC001ACB18 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2DD91627ABFECC001ACB18 /* NavigationBarModifier.swift */; };
 		DB31BA9727A91617009F0F74 /* GitHubRepositoriesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31BA9627A91617009F0F74 /* GitHubRepositoriesApp.swift */; };
 		DB31BA9927A91617009F0F74 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31BA9827A91617009F0F74 /* AuthView.swift */; };
@@ -22,7 +24,7 @@
 		DB31BAB127AA55F3009F0F74 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31BAB027AA55F3009F0F74 /* Repository.swift */; };
 		DB31BAB327AA5B4F009F0F74 /* StarterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31BAB227AA5B4F009F0F74 /* StarterView.swift */; };
 		DB31BAB827AA670B009F0F74 /* RepositoriesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31BAB727AA670A009F0F74 /* RepositoriesListViewModel.swift */; };
-		DB31BABB27AA72FF009F0F74 /* AuthButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31BABA27AA72FF009F0F74 /* AuthButtonView.swift */; };
+		DB31BABB27AA72FF009F0F74 /* ForestButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31BABA27AA72FF009F0F74 /* ForestButtonView.swift */; };
 		DB31BABD27AA762E009F0F74 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31BABC27AA762E009F0F74 /* SpinnerView.swift */; };
 		DB31BAC027AA91C7009F0F74 /* ForestButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31BABF27AA91C7009F0F74 /* ForestButtonStyle.swift */; };
 		DB31BAC227AA927E009F0F74 /* BlackTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31BAC127AA927E009F0F74 /* BlackTextFieldStyle.swift */; };
@@ -49,6 +51,8 @@
 		DB01D2F927AE801A00DA13D2 /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
 		DB01D2FB27AE819E00DA13D2 /* OwnerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerViewModel.swift; sourceTree = "<group>"; };
 		DB01D2FE27AFC60700DA13D2 /* HoustonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoustonView.swift; sourceTree = "<group>"; };
+		DB229FFC27B152A400D0AE16 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		DB229FFF27B1541C00D0AE16 /* ErrorNetworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorNetworkView.swift; sourceTree = "<group>"; };
 		DB2DD91627ABFECC001ACB18 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		DB31BA9327A91617009F0F74 /* GitHubRepositories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubRepositories.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB31BA9627A91617009F0F74 /* GitHubRepositoriesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoriesApp.swift; sourceTree = "<group>"; };
@@ -62,7 +66,7 @@
 		DB31BAB027AA55F3009F0F74 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		DB31BAB227AA5B4F009F0F74 /* StarterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterView.swift; sourceTree = "<group>"; };
 		DB31BAB727AA670A009F0F74 /* RepositoriesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesListViewModel.swift; sourceTree = "<group>"; };
-		DB31BABA27AA72FF009F0F74 /* AuthButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButtonView.swift; sourceTree = "<group>"; };
+		DB31BABA27AA72FF009F0F74 /* ForestButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForestButtonView.swift; sourceTree = "<group>"; };
 		DB31BABC27AA762E009F0F74 /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 		DB31BABF27AA91C7009F0F74 /* ForestButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForestButtonStyle.swift; sourceTree = "<group>"; };
 		DB31BAC127AA927E009F0F74 /* BlackTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackTextFieldStyle.swift; sourceTree = "<group>"; };
@@ -96,12 +100,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DB01D2FD27AFC5C100DA13D2 /* HoustonView */ = {
+		DB229FFE27B153EF00D0AE16 /* ErrorView */ = {
 			isa = PBXGroup;
 			children = (
+				DB229FFF27B1541C00D0AE16 /* ErrorNetworkView.swift */,
 				DB01D2FE27AFC60700DA13D2 /* HoustonView.swift */,
 			);
-			path = HoustonView;
+			path = ErrorView;
 			sourceTree = "<group>";
 		};
 		DB31BA8A27A91616009F0F74 = {
@@ -153,7 +158,7 @@
 				DB31BAB527AA6092009F0F74 /* AuthView */,
 				DB31BAB627AA60AB009F0F74 /* RepositoriesListView */,
 				DB67354327ACE80A002DF23E /* RepositoryDetailView */,
-				DB01D2FD27AFC5C100DA13D2 /* HoustonView */,
+				DB229FFE27B153EF00D0AE16 /* ErrorView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 			children = (
 				DB31BAAB27A93477009F0F74 /* NetworkManager.swift */,
 				DB67353F27ACCFE0002DF23E /* PageManager.swift */,
+				DB229FFC27B152A400D0AE16 /* NetworkMonitor.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -200,7 +206,7 @@
 			children = (
 				DB31BAA827A929B8009F0F74 /* AuthViewModel.swift */,
 				DB31BA9827A91617009F0F74 /* AuthView.swift */,
-				DB31BABA27AA72FF009F0F74 /* AuthButtonView.swift */,
+				DB31BABA27AA72FF009F0F74 /* ForestButtonView.swift */,
 				DB31BABC27AA762E009F0F74 /* SpinnerView.swift */,
 			);
 			path = AuthView;
@@ -335,7 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB31BABB27AA72FF009F0F74 /* AuthButtonView.swift in Sources */,
+				DB31BABB27AA72FF009F0F74 /* ForestButtonView.swift in Sources */,
 				DB31BAB127AA55F3009F0F74 /* Repository.swift in Sources */,
 				DB31BAA927A929B9009F0F74 /* AuthViewModel.swift in Sources */,
 				DB67354B27AD3E11002DF23E /* License.swift in Sources */,
@@ -343,6 +349,7 @@
 				DB31BACA27AAA7E8009F0F74 /* Extension + UIWindow.swift in Sources */,
 				DB31BAA727A92942009F0F74 /* RepositoriesListView.swift in Sources */,
 				DB01D2FC27AE819E00DA13D2 /* OwnerViewModel.swift in Sources */,
+				DB22A00027B1541C00D0AE16 /* ErrorNetworkView.swift in Sources */,
 				DB31BAAF27AA557B009F0F74 /* User.swift in Sources */,
 				DB31BAB827AA670B009F0F74 /* RepositoriesListViewModel.swift in Sources */,
 				DB31BAC827AAA275009F0F74 /* Extension + UIApplication.swift in Sources */,
@@ -357,6 +364,7 @@
 				DB67355027AD74D7002DF23E /* Helper.swift in Sources */,
 				DB31BAAC27A93477009F0F74 /* NetworkManager.swift in Sources */,
 				DB67354527ACE899002DF23E /* RepositoryDetailView.swift in Sources */,
+				DB229FFD27B152A400D0AE16 /* NetworkMonitor.swift in Sources */,
 				DB31BA9927A91617009F0F74 /* AuthView.swift in Sources */,
 				DB31BABD27AA762E009F0F74 /* SpinnerView.swift in Sources */,
 				DB67354027ACCFE0002DF23E /* PageManager.swift in Sources */,
