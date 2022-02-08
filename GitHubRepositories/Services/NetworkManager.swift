@@ -55,9 +55,7 @@ class NetworkManager {
             return completion(.failure(.badURL))
         }
         
-        let request = URLRequest(url: url)
-        
-        URLSession.shared.dataTask(with: request) { data, response, error in
+        URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {
                 return completion(.failure(.noData))
             }
@@ -82,9 +80,7 @@ class NetworkManager {
         let path = url + "README.md"
         guard let url = URL(string: path) else { return completion(.failure(.badURL)) }
         
-        let request = URLRequest(url: url)
-        
-        URLSession.shared.dataTask(with: request) { data, response, error in
+        URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {
                 return completion(.failure(.noData))
             }
