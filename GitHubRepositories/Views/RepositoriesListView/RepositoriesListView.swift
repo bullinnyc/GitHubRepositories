@@ -36,6 +36,7 @@ struct RepositoriesListView: View {
                     ToolbarExitButtonView(image: "exit") {
                         withAnimation {
                             pageManager.currentPage = .auth
+                            AppStorageManager.shared.deleteUser()
                         }
                     }
                 }

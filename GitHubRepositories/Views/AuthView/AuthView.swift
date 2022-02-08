@@ -105,6 +105,7 @@ struct AuthView: View {
                                 guard !isError else { return }
                                 
                                 user = authViewModel.user?.login ?? ""
+                                AppStorageManager.shared.saveUser(user)
                                 UIApplication.shared.endEditing()
                                 pageManager.currentPage = .repositories
                             }

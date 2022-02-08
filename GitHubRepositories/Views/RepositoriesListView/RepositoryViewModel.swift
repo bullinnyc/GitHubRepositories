@@ -61,7 +61,7 @@ class RepositoryViewModel: ObservableObject, Identifiable {
     private let repository: Repository
     
     // MARK: - Initializers
-    required init(repository: Repository) {
+    init(repository: Repository) {
         self.repository = repository
         getReadme()
     }

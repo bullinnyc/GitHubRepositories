@@ -45,6 +45,7 @@
 		DB67355027AD74D7002DF23E /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67354F27AD74D7002DF23E /* Helper.swift */; };
 		DBB8528127AE66A4002521DC /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = DBB8528027AE66A4002521DC /* MarkdownUI */; };
 		DBC5391027B1167900D1329D /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC5390F27B1167900D1329D /* LoadingIndicatorView.swift */; };
+		DBF6630E27B21D50009D91CF /* AppStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF6630D27B21D50009D91CF /* AppStorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		DB67354C27AD54D2002DF23E /* LicenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseViewModel.swift; sourceTree = "<group>"; };
 		DB67354F27AD74D7002DF23E /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		DBC5390F27B1167900D1329D /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
+		DBF6630D27B21D50009D91CF /* AppStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 				DB31BAAB27A93477009F0F74 /* NetworkManager.swift */,
 				DB67353F27ACCFE0002DF23E /* PageManager.swift */,
 				DB229FFC27B152A400D0AE16 /* NetworkMonitor.swift */,
+				DBF6630D27B21D50009D91CF /* AppStorageManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				DB31BAC227AA927E009F0F74 /* BlackTextFieldStyle.swift in Sources */,
 				DB67354927AD23AC002DF23E /* InfoView.swift in Sources */,
 				DB31BA9727A91617009F0F74 /* GitHubRepositoriesApp.swift in Sources */,
+				DBF6630E27B21D50009D91CF /* AppStorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

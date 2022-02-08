@@ -33,6 +33,11 @@ struct StarterView: View {
                 pageManager.currentPage = currentPage
             }
         }
+        .onAppear {
+            guard let user = AppStorageManager.shared.getUser() else { return }
+            self.user = user
+            pageManager.currentPage = .repositories
+        }
     }
 }
 
