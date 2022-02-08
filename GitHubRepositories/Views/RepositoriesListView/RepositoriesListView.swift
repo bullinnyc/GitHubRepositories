@@ -71,6 +71,6 @@ struct RepositoriesListView: View {
 struct RepositoriesView_Previews: PreviewProvider {
     static var previews: some View {
         RepositoriesListView(user: "username")
-        // Notes: Line 46 uncomment for use Preview Provider
+        // Notes: Line 47 uncomment for use Preview Provider
     }
 }

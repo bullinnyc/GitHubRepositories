@@ -178,9 +178,9 @@
 			isa = PBXGroup;
 			children = (
 				DB31BAAB27A93477009F0F74 /* NetworkManager.swift */,
+				DBF6630D27B21D50009D91CF /* AppStorageManager.swift */,
 				DB67353F27ACCFE0002DF23E /* PageManager.swift */,
 				DB229FFC27B152A400D0AE16 /* NetworkMonitor.swift */,
-				DBF6630D27B21D50009D91CF /* AppStorageManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
