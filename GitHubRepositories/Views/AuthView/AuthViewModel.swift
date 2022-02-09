@@ -16,20 +16,20 @@ class AuthViewModel: ObservableObject {
     private var subscriptions: Set<AnyCancellable> = []
     
     // MARK: - Public Methods
-    func getUser(from token: String, completion: @escaping (Bool) -> Void) {
+    func getUser(from token: String, completionHandler: @escaping (Bool) -> Void) {
         NetworkManager.shared.fetchUser(from: UserURL.user.rawValue, with: token)
             .sink(
-                receiveCompletion: { completionError in
-                    switch completionError {
+                receiveCompletion: { completion in
+                    switch completion {
                     case .finished:
                         break
                     case .failure(let error):
                         print(error.localizedDescription)
-                        completion(true)
+                        completionHandler(true)
                     }
                 }, receiveValue: { [unowned self] batch in
                     self.user = batch
-                    completion(false)
+                    completionHandler(false)
                 }
             )
             .store(in: &subscriptions)
