@@ -11,10 +11,8 @@ class RepositoriesListViewModel: ObservableObject {
     // MARK: - Property Wrappers
     @Published var repositories: [RepositoryViewModel] = []
     
-    // MARK: - Public Properties
-    var isCanLoadNextPage = true
-    
     // MARK: - Private Properties
+    private var isCanLoadNextPage = true
     private var perPage = 10
     private var page = 1
     
@@ -44,6 +42,11 @@ class RepositoriesListViewModel: ObservableObject {
         if repositories.last == repository {
             getRepo(for: user)
         }
+    }
+    
+    func isShowLoading() -> Bool {
+        guard isCanLoadNextPage, page != 1 else { return false }
+        return true
     }
 }
 

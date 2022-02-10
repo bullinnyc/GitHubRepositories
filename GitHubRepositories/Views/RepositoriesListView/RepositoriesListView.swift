@@ -22,7 +22,7 @@ struct RepositoriesListView: View {
             List {
                 repositoriesList
                 
-                if listViewModel.isCanLoadNextPage {
+                if listViewModel.isShowLoading() {
                     LoadingIndicatorView()
                         .listRowBackground(Color.black)
                 }
