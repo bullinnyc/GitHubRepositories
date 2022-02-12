@@ -27,6 +27,11 @@ struct RepositoriesListView: View {
                         .listRowBackground(Color.black)
                 }
             }
+            .pullToRefresh(isShowing: $listViewModel.isShowRefresh) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    listViewModel.refreshRepo(for: user)
+                }
+            }
             .listStyle(.plain)
             .background(Color.black.ignoresSafeArea())
             .navigationBarColor(backgroundColor: .black, titleColor: .white)
@@ -49,28 +54,28 @@ struct RepositoriesListView: View {
     }
     
     // MARK: - repositoriesList Private Property
-        private var repositoriesList: some View {
-            ForEach(listViewModel.repositories) { repository in
-                NavigationLink(
-                    destination: RepositoryDetailView(itemViewModel: repository)
-                ) {
-                    RepositoryRowView(itemViewModel: repository)
-                        .onAppear {
-                            listViewModel.onScrolledAtBottom(repository, for: user)
-                        }
-                }
+    private var repositoriesList: some View {
+        ForEach(listViewModel.repositories) { repository in
+            NavigationLink(
+                destination: RepositoryDetailView(itemViewModel: repository)
+            ) {
+                RepositoryRowView(itemViewModel: repository)
+                    .onAppear {
+                        listViewModel.onScrolledAtBottom(repository, for: user)
+                    }
             }
-            .listRowBackground(Color.black)
-            .listRowInsets(
-                EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: -62)
-            )
         }
+        .listRowBackground(Color.black)
+        .listRowInsets(
+            EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: -62)
+        )
     }
+}
 
 // MARK: - Preview Provider
 struct RepositoriesView_Previews: PreviewProvider {
     static var previews: some View {
         RepositoriesListView(user: "username")
-        // Notes: Line 47 uncomment for use Preview Provider
+        // Notes: Line 52 uncomment for use Preview Provider
     }
 }

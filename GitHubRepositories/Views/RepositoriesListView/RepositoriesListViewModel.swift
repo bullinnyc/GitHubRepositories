@@ -11,12 +11,13 @@ import Combine
 class RepositoriesListViewModel: ObservableObject {
     // MARK: - Property Wrappers
     @Published var repositories: [RepositoryViewModel] = []
+    @Published var isShowRefresh = false
     
     // MARK: - Private Properties
     private var subscriptions: Set<AnyCancellable> = []
     private var isCanLoadNextPage = true
-    private var perPage = 10
     private var page = 1
+    private var perPage = 10
     
     // MARK: - Public Methods
     func getRepo(for user: String) {
@@ -25,6 +26,12 @@ class RepositoriesListViewModel: ObservableObject {
         NetworkManager.shared.fetchRepo(from: RepositoryURL.repo.rawValue, for: user, perPage: perPage, page: page)
             .sink(receiveCompletion: onReceive, receiveValue: onReceive)
             .store(in: &subscriptions)
+    }
+    
+    func refreshRepo(for user: String) {
+        page = 1
+        isCanLoadNextPage = true
+        getRepo(for: user)
     }
     
     func onScrolledAtBottom(_ repository: RepositoryViewModel, for user: String) {
@@ -50,6 +57,11 @@ class RepositoriesListViewModel: ObservableObject {
     
     private func onReceive(_ batch: [Repository]) {
         let repos = batch.map { RepositoryViewModel(repository: $0) }
+        
+        if isShowRefresh {
+            repositories.removeAll()
+            isShowRefresh = false
+        }
         
         repositories += repos
         page += 1
