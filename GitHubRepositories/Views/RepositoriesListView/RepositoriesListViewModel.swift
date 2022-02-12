@@ -17,7 +17,7 @@ class RepositoriesListViewModel: ObservableObject {
     private var subscriptions: Set<AnyCancellable> = []
     private var isCanLoadNextPage = true
     private var page = 1
-    private var perPage = 10
+    private let perPage = 10
     
     // MARK: - Public Methods
     func getRepo(for user: String) {
