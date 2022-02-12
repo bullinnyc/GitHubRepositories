@@ -10,11 +10,12 @@ import Foundation
 class RepositoriesListViewModel: ObservableObject {
     // MARK: - Property Wrappers
     @Published var repositories: [RepositoryViewModel] = []
+    @Published var isShowRefresh = false
     
     // MARK: - Private Properties
     private var isCanLoadNextPage = true
-    private var perPage = 10
     private var page = 1
+    private let perPage = 10
     
     // MARK: - Public Methods
     func getRepo(for user: String) {
@@ -25,7 +26,12 @@ class RepositoriesListViewModel: ObservableObject {
             case .success(let repositories):
                 let repos = repositories.map { RepositoryViewModel(repository: $0) }
                 
-                self.repositories.append(contentsOf: repos)
+                if isShowRefresh {
+                    self.repositories.removeAll()
+                    isShowRefresh = false
+                }
+                
+                self.repositories += repos
                 page += 1
                 isCanLoadNextPage = repos.count == perPage
             case .failure(let error):
@@ -36,6 +42,12 @@ class RepositoriesListViewModel: ObservableObject {
                 print(error.rawValue)
             }
         }
+    }
+    
+    func refreshRepo(for user: String) {
+        page = 1
+        isCanLoadNextPage = true
+        getRepo(for: user)
     }
     
     func onScrolledAtBottom(_ repository: RepositoryViewModel, for user: String) {

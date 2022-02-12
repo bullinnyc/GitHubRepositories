@@ -43,6 +43,7 @@
 		DB67354B27AD3E11002DF23E /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67354A27AD3E11002DF23E /* License.swift */; };
 		DB67354D27AD54D3002DF23E /* LicenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67354C27AD54D2002DF23E /* LicenseViewModel.swift */; };
 		DB67355027AD74D7002DF23E /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67354F27AD74D7002DF23E /* Helper.swift */; };
+		DB90826927B807A500F99916 /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB90826827B807A500F99916 /* PullToRefresh.swift */; };
 		DBB8528127AE66A4002521DC /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = DBB8528027AE66A4002521DC /* MarkdownUI */; };
 		DBC5391027B1167900D1329D /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC5390F27B1167900D1329D /* LoadingIndicatorView.swift */; };
 		DBF6630E27B21D50009D91CF /* AppStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF6630D27B21D50009D91CF /* AppStorageManager.swift */; };
@@ -86,6 +87,7 @@
 		DB67354A27AD3E11002DF23E /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
 		DB67354C27AD54D2002DF23E /* LicenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseViewModel.swift; sourceTree = "<group>"; };
 		DB67354F27AD74D7002DF23E /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		DB90826827B807A500F99916 /* PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
 		DBC5390F27B1167900D1329D /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
 		DBF6630D27B21D50009D91CF /* AppStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -226,6 +228,7 @@
 				DB31BAD227ABBBFE009F0F74 /* RepositoryRowView.swift */,
 				DB67353D27ACCBBE002DF23E /* ToolbarExitButtonView.swift */,
 				DBC5390F27B1167900D1329D /* LoadingIndicatorView.swift */,
+				DB90826827B807A500F99916 /* PullToRefresh.swift */,
 			);
 			path = RepositoriesListView;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				DB31BAB827AA670B009F0F74 /* RepositoriesListViewModel.swift in Sources */,
 				DB31BAC827AAA275009F0F74 /* Extension + UIApplication.swift in Sources */,
 				DB01D2FA27AE801A00DA13D2 /* Owner.swift in Sources */,
+				DB90826927B807A500F99916 /* PullToRefresh.swift in Sources */,
 				DB31BAB327AA5B4F009F0F74 /* StarterView.swift in Sources */,
 				DB31BAD127AB980A009F0F74 /* Extension + UIDevice.swift in Sources */,
 				DB67354727AD016B002DF23E /* LicenseView.swift in Sources */,
