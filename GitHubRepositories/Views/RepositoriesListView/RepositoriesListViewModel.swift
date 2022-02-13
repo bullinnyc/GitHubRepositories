@@ -5,7 +5,6 @@
 //  Created by Dmitry Kononchuk on 02.02.2022.
 //
 
-import Foundation
 import Combine
 
 class RepositoriesListViewModel: ObservableObject {
