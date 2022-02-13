@@ -28,9 +28,7 @@ struct RepositoriesListView: View {
                 }
             }
             .pullToRefresh(isShowing: $listViewModel.isShowRefresh) {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    listViewModel.refreshRepo(for: user)
-                }
+                listViewModel.refreshRepo(for: user)
             }
             .listStyle(.plain)
             .background(Color.black.ignoresSafeArea())
@@ -76,6 +74,6 @@ struct RepositoriesListView: View {
 struct RepositoriesView_Previews: PreviewProvider {
     static var previews: some View {
         RepositoriesListView(user: "username")
-        // Notes: Line 52 uncomment for use Preview Provider
+        // Notes: Line 50 uncomment for use Preview Provider
     }
 }

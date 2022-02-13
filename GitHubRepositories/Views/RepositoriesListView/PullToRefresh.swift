@@ -12,6 +12,7 @@ struct PullToRefresh: UIViewRepresentable {
     @Binding var isShowing: Bool
     
     // MARK: - Public Properties
+    let deadline: Double
     let onRefresh: () -> Void
     
     // MARK: - Public Methods
@@ -52,7 +53,7 @@ struct PullToRefresh: UIViewRepresentable {
     }
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(isShowing: $isShowing, onRefresh: onRefresh)
+        Coordinator(isShowing: $isShowing, deadline: deadline, onRefresh: onRefresh)
     }
     
     // MARK: - Private Methods
@@ -76,29 +77,33 @@ extension PullToRefresh {
         let isShowing: Binding<Bool>
         
         // MARK: - Public Properties
+        let deadline: Double
         let onRefresh: () -> Void
         
         // MARK: - Initializers
-        init(isShowing: Binding<Bool>, onRefresh: @escaping () -> Void) {
+        init(isShowing: Binding<Bool>, deadline: Double, onRefresh: @escaping () -> Void) {
             self.isShowing = isShowing
+            self.deadline = deadline
             self.onRefresh = onRefresh
         }
         
         // MARK: - Public Methods
         @objc func handleRefreshControl() {
             isShowing.wrappedValue = true
-            onRefresh()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + deadline) {
+                self.onRefresh()
+            }
         }
     }
 }
 
 // MARK: - Ext. View
 extension View {
-    func pullToRefresh(isShowing: Binding<Bool>, onRefresh: @escaping () -> Void) -> some View {
+    func pullToRefresh(isShowing: Binding<Bool>, deadline: Double = 1, onRefresh: @escaping () -> Void) -> some View {
         overlay(
-            PullToRefresh(isShowing: isShowing, onRefresh: onRefresh)
+            PullToRefresh(isShowing: isShowing, deadline: deadline, onRefresh: onRefresh)
                 .frame(width: 0, height: 0)
         )
     }
 }
-
