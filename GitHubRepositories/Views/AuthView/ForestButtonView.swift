@@ -34,11 +34,20 @@ struct ForestButtonView: View {
 // MARK: - Preview Provider
 struct AuthButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        ZStack {
-            Color.black
-                .ignoresSafeArea()
-            
-            ForestButtonView(text: "Sign In", width: 300, height: 48, isLoading: true) {}
-        }
+        ForestButtonView(
+            text: "Sign In",
+            width: 300,
+            height: 48,
+            isLoading: false
+        ) {}
+        .previewLayout(.sizeThatFits)
+        
+        ForestButtonView(
+            text: "Sign In",
+            width: 300,
+            height: 48,
+            isLoading: true
+        ) {}
+        .previewLayout(.sizeThatFits)
     }
 }
