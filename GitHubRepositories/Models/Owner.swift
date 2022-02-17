@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Owner: Codable {
+struct Owner: Decodable {
     // MARK: - Public Properties
     let login: String
 }

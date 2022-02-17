@@ -9,7 +9,7 @@ import Combine
 
 class AuthViewModel: ObservableObject {
     // MARK: - Property Wrappers
-    @Published var user: User?
+    @Published var user: UserViewModel?
     
     // MARK: - Private Properties
     private var subscriptions: Set<AnyCancellable> = []
@@ -27,7 +27,7 @@ class AuthViewModel: ObservableObject {
                         completionHandler(true)
                     }
                 }, receiveValue: { [unowned self] batch in
-                    self.user = batch
+                    self.user = UserViewModel(user: batch)
                     completionHandler(false)
                 }
             )
