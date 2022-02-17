@@ -9,14 +9,14 @@ import Foundation
 
 class AuthViewModel: ObservableObject {
     // MARK: - Property Wrappers
-    @Published var user: User?
+    @Published var user: UserViewModel?
     
     // MARK: - Public Methods
     func getUser(from token: String, completion: @escaping (Bool) -> Void) {
         NetworkManager.shared.fetchUser(from: UserURL.user.rawValue, with: token) { [unowned self] result in
             switch result {
             case .success(let user):
-                self.user = user
+                self.user = UserViewModel(user: user)
                 completion(false)
             case .failure(let error):
                 DispatchQueue.main.async {
