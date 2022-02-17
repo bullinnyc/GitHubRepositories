@@ -32,6 +32,7 @@ struct NavigationBarModifier: ViewModifier {
     func body(content: Content) -> some View {
         ZStack{
             content
+            
             VStack {
                 GeometryReader { geometry in
                     Color(backgroundColor ?? .clear)
