@@ -36,7 +36,7 @@ class RepositoriesListViewModel: ObservableObject {
                 isCanLoadNextPage = repos.count == perPage
             case .failure(let error):
                 DispatchQueue.main.async {
-                    isCanLoadNextPage = false
+                    self.isCanLoadNextPage = false
                 }
                 
                 print(error.rawValue)
